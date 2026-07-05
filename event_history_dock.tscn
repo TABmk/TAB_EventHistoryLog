@@ -1,0 +1,133 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfkplrmtfdoyw"]
+
+[ext_resource type="Script" path="res://addons/TAB_EventHistoryLog/event_history_dock.gd" id="1_067rx"]
+
+[node name="EventHistory" type="MarginContainer" unique_id=613993509]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+script = ExtResource("1_067rx")
+
+[node name="Tabs" type="TabContainer" parent="." unique_id=424966231]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="log" type="MarginContainer" parent="Tabs" unique_id=1963167799]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+metadata/_tab_index = 0
+
+[node name="LogRoot" type="VBoxContainer" parent="Tabs/log"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="LogToolbar" type="HBoxContainer" parent="Tabs/log/LogRoot"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ClearLogButton" type="Button" parent="Tabs/log/LogRoot/LogToolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Clear"
+
+[node name="LogOutputHost" type="Control" parent="Tabs/log/LogRoot"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="settings" type="MarginContainer" parent="Tabs" unique_id=1931454238]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+metadata/_tab_index = 1
+
+[node name="SettingsRoot" type="VBoxContainer" parent="Tabs/settings"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="SettingsGrid" type="GridContainer" parent="Tabs/settings/SettingsRoot"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="LogFilePathLabel" type="Label" parent="Tabs/settings/SettingsRoot/SettingsGrid"]
+layout_mode = 2
+text = "Log file path"
+
+[node name="LogFilePathInput" type="LineEdit" parent="Tabs/settings/SettingsRoot/SettingsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "user://event_history_log.txt"
+placeholder_text = "user://event_history_log.txt"
+
+[node name="TextNodeClassLabel" type="Label" parent="Tabs/settings/SettingsRoot/SettingsGrid"]
+layout_mode = 2
+text = "Select text node"
+
+[node name="TextNodePickerRow" type="HBoxContainer" parent="Tabs/settings/SettingsRoot/SettingsGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="TextNodeClassInput" type="LineEdit" parent="Tabs/settings/SettingsRoot/SettingsGrid/TextNodePickerRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+text = "RichTextLabel"
+placeholder_text = "Select a RichTextLabel class..."
+
+[node name="PickTextNodeClassButton" type="Button" parent="Tabs/settings/SettingsRoot/SettingsGrid/TextNodePickerRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Pick"
+
+[node name="ClearTextNodeClassButton" type="Button" parent="Tabs/settings/SettingsRoot/SettingsGrid/TextNodePickerRow"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Clear"
+
+[node name="SyncIntervalLabel" type="Label" parent="Tabs/settings/SettingsRoot/SettingsGrid"]
+layout_mode = 2
+text = "Sync interval (ms)"
+
+[node name="SyncIntervalInput" type="SpinBox" parent="Tabs/settings/SettingsRoot/SettingsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 600000.0
+value = 1000.0
+rounded = true
+
+[node name="WriteLogOnlyInDebugLabel" type="Label" parent="Tabs/settings/SettingsRoot/SettingsGrid"]
+layout_mode = 2
+text = "Write log only in debug"
+
+[node name="WriteLogOnlyInDebugCheckbox" type="CheckBox" parent="Tabs/settings/SettingsRoot/SettingsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
