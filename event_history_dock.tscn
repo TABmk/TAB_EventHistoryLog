@@ -1,6 +1,70 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfkplrmtfdoyw"]
+[gd_scene format=3 uid="uid://dfkplrmtfdoyw"]
 
-[ext_resource type="Script" path="res://addons/TAB_EventHistoryLog/event_history_dock.gd" id="1_067rx"]
+[ext_resource type="Script" uid="uid://c8psm1d13i0ia" path="res://addons/TAB_EventHistoryLog/event_history_dock.gd" id="1_067rx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npoj2"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0.6)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.175, 0.175, 0.175, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wn3s7"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.175, 0.175, 0.175, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6xc4e"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_top = 2
+border_color = Color(1, 1, 1, 0.75)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hko7"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.175, 0.175, 0.175, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0s6e"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
 
 [node name="EventHistory" type="MarginContainer" unique_id=613993509]
 anchors_preset = 15
@@ -19,6 +83,12 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 18
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_npoj2")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_wn3s7")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_6xc4e")
+theme_override_styles/tab_disabled = SubResource("StyleBoxFlat_1hko7")
+theme_override_styles/tab_focus = SubResource("StyleBoxFlat_x0s6e")
 current_tab = 0
 
 [node name="log" type="MarginContainer" parent="Tabs" unique_id=1963167799]
@@ -29,22 +99,22 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 metadata/_tab_index = 0
 
-[node name="LogRoot" type="VBoxContainer" parent="Tabs/log"]
+[node name="LogRoot" type="VBoxContainer" parent="Tabs/log" unique_id=667017086]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="LogToolbar" type="HBoxContainer" parent="Tabs/log/LogRoot"]
+[node name="LogToolbar" type="HBoxContainer" parent="Tabs/log/LogRoot" unique_id=1326218733]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="ClearLogButton" type="Button" parent="Tabs/log/LogRoot/LogToolbar"]
+[node name="ClearLogButton" type="Button" parent="Tabs/log/LogRoot/LogToolbar" unique_id=278196828]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Clear"
 
-[node name="LogOutputHost" type="Control" parent="Tabs/log/LogRoot"]
+[node name="LogOutputHost" type="Control" parent="Tabs/log/LogRoot" unique_id=529999965]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -59,63 +129,63 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 metadata/_tab_index = 1
 
-[node name="SettingsRoot" type="VBoxContainer" parent="Tabs/settings"]
+[node name="SettingsRoot" type="VBoxContainer" parent="Tabs/settings" unique_id=1547089114]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="SettingsGrid" type="GridContainer" parent="Tabs/settings/SettingsRoot"]
+[node name="SettingsGrid" type="GridContainer" parent="Tabs/settings/SettingsRoot" unique_id=150260561]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/h_separation = 12
 theme_override_constants/v_separation = 8
 columns = 2
 
-[node name="LogFilePathLabel" type="Label" parent="Tabs/settings/SettingsRoot/SettingsGrid"]
+[node name="LogFilePathLabel" type="Label" parent="Tabs/settings/SettingsRoot/SettingsGrid" unique_id=1870218578]
 layout_mode = 2
 text = "Log file path"
 
-[node name="LogFilePathInput" type="LineEdit" parent="Tabs/settings/SettingsRoot/SettingsGrid"]
+[node name="LogFilePathInput" type="LineEdit" parent="Tabs/settings/SettingsRoot/SettingsGrid" unique_id=400782212]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "user://event_history_log.txt"
 placeholder_text = "user://event_history_log.txt"
 
-[node name="TextNodeClassLabel" type="Label" parent="Tabs/settings/SettingsRoot/SettingsGrid"]
+[node name="TextNodeClassLabel" type="Label" parent="Tabs/settings/SettingsRoot/SettingsGrid" unique_id=342067935]
 layout_mode = 2
 text = "Select text node"
 
-[node name="TextNodePickerRow" type="HBoxContainer" parent="Tabs/settings/SettingsRoot/SettingsGrid"]
+[node name="TextNodePickerRow" type="HBoxContainer" parent="Tabs/settings/SettingsRoot/SettingsGrid" unique_id=1046366042]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 8
 
-[node name="TextNodeClassInput" type="LineEdit" parent="Tabs/settings/SettingsRoot/SettingsGrid/TextNodePickerRow"]
+[node name="TextNodeClassInput" type="LineEdit" parent="Tabs/settings/SettingsRoot/SettingsGrid/TextNodePickerRow" unique_id=551437431]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-editable = false
 text = "RichTextLabel"
 placeholder_text = "Select a RichTextLabel class..."
+editable = false
 
-[node name="PickTextNodeClassButton" type="Button" parent="Tabs/settings/SettingsRoot/SettingsGrid/TextNodePickerRow"]
+[node name="PickTextNodeClassButton" type="Button" parent="Tabs/settings/SettingsRoot/SettingsGrid/TextNodePickerRow" unique_id=1544213192]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Pick"
 
-[node name="ClearTextNodeClassButton" type="Button" parent="Tabs/settings/SettingsRoot/SettingsGrid/TextNodePickerRow"]
+[node name="ClearTextNodeClassButton" type="Button" parent="Tabs/settings/SettingsRoot/SettingsGrid/TextNodePickerRow" unique_id=2130155372]
 unique_name_in_owner = true
 layout_mode = 2
 disabled = true
 text = "Clear"
 
-[node name="SyncIntervalLabel" type="Label" parent="Tabs/settings/SettingsRoot/SettingsGrid"]
+[node name="SyncIntervalLabel" type="Label" parent="Tabs/settings/SettingsRoot/SettingsGrid" unique_id=841163504]
 layout_mode = 2
 text = "Sync interval (ms)"
 
-[node name="SyncIntervalInput" type="SpinBox" parent="Tabs/settings/SettingsRoot/SettingsGrid"]
+[node name="SyncIntervalInput" type="SpinBox" parent="Tabs/settings/SettingsRoot/SettingsGrid" unique_id=1581241866]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = 1.0
@@ -123,11 +193,10 @@ max_value = 600000.0
 value = 1000.0
 rounded = true
 
-[node name="WriteLogOnlyInDebugLabel" type="Label" parent="Tabs/settings/SettingsRoot/SettingsGrid"]
+[node name="WriteLogOnlyInDebugLabel" type="Label" parent="Tabs/settings/SettingsRoot/SettingsGrid" unique_id=429568645]
 layout_mode = 2
 text = "Write log only in debug"
 
-[node name="WriteLogOnlyInDebugCheckbox" type="CheckBox" parent="Tabs/settings/SettingsRoot/SettingsGrid"]
+[node name="WriteLogOnlyInDebugCheckbox" type="CheckBox" parent="Tabs/settings/SettingsRoot/SettingsGrid" unique_id=610920944]
 unique_name_in_owner = true
 layout_mode = 2
-button_pressed = true
